@@ -187,19 +187,32 @@ button:hover {
   50% { opacity: 0.35; }
 }
 
-.status-top-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.status-primary {
+  display: block;
+  position: relative;
+  z-index: 1;
+  min-width: 0;
 }
 
-.aqi-hero {
+.aqi-reading {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.aqi-reading-context {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 8px;
+}
+
+.aqi-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .status-card {
@@ -254,9 +267,11 @@ button:hover {
 
 .status-meta {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  flex: 1;
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
 }
 
 .meta-item {
@@ -273,6 +288,7 @@ button:hover {
 
 .meta-item strong {
   display: block;
+  overflow-wrap: anywhere;
 }
 
 .monitoring-state {
@@ -327,6 +343,12 @@ button:hover {
   }
   button {
     width: 100%;
+  }
+  .status-meta {
+    grid-template-columns: 1fr;
+  }
+  .aqi-reading {
+    align-items: center;
   }
   .history-item {
     grid-template-columns: 1fr;

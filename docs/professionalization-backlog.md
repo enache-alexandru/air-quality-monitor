@@ -7,7 +7,7 @@ Make the app feel more polished, reliable, and production-ready for real-world u
 
 ### Phase 1 — UX and dashboard polish
 - [x] Add a color-coded AQI severity card
-- [ ] Improve the current status layout with clearer hierarchy
+- [x] Improve the current status layout with clearer hierarchy
 - [ ] Add a small trend/history panel for recent AQI values
 - [ ] Upgrade empty, loading, and error messages
 - [ ] Refine UI copy for a more professional feel

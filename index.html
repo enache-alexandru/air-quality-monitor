@@ -51,20 +51,21 @@
             <span id="apiConnectionText">Idle</span>
           </span>
         </div>
-        <div class="status-top-row">
-          <div>
-            <p class="eyebrow">Current AQI</p>
-            <div class="aqi-hero">
-              <span id="aqiValue" class="aqi-number">—</span>
+        <div class="status-primary">
+          <p class="eyebrow">Current air quality</p>
+          <div class="aqi-reading">
+            <span id="aqiValue" class="aqi-number">—</span>
+            <div class="aqi-reading-context">
+              <span class="aqi-label">AQI</span>
               <span id="aqiBadge" class="aqi-badge status-neutral">Waiting</span>
             </div>
-            <p id="healthGuidance" class="health-guidance">Waiting for the first air quality reading.</p>
           </div>
-          <div class="status-meta">
-            <div class="meta-item"><span>Location</span><strong id="locationLabel">—</strong></div>
-            <div class="meta-item"><span>Pollutant</span><strong id="dominantPollutant">—</strong></div>
-            <div class="meta-item"><span>Updated</span><strong id="updatedAt">—</strong></div>
-          </div>
+          <p id="healthGuidance" class="health-guidance">Waiting for the first air quality reading.</p>
+        </div>
+        <div class="status-meta">
+          <div class="meta-item"><span>Location</span><strong id="locationLabel">—</strong></div>
+          <div class="meta-item"><span>Dominant pollutant</span><strong id="dominantPollutant">—</strong></div>
+          <div class="meta-item"><span>Last updated</span><strong id="updatedAt">—</strong></div>
         </div>
         <div id="monitoringState" class="monitoring-state">Monitoring is idle.</div>
       </section>
