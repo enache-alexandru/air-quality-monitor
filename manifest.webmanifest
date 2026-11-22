@@ -1,0 +1,16 @@
+{
+  "name": "Air Quality Monitor",
+  "short_name": "AQI Monitor",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#101118",
+  "theme_color": "#53c6ff",
+  "description": "Monitor air quality near you and receive alerts when AQI is high.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ]
+}

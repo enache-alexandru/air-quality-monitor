@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101118" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="manifest.webmanifest?v=2" />
+    <link rel="apple-touch-icon" href="icon.svg?v=2" />
+    <title>Air Quality Monitor</title>
+    <link rel="stylesheet" href="styles.css?v=2" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <h1>Air Quality Monitor</h1>
+      <p class="subtitle">Monitor AQI in your region and receive alerts when air quality is too high.</p>
+
+      <section class="card settings-card">
+        <h2>Settings</h2>
+        <label>
+          Region / City
+          <input id="locationQuery" type="text" placeholder="e.g. London, Paris, New York" />
+        </label>
+        <p class="helper-text">The monitoring flow is now backend-first. Set the WAQI token on the Node server host via the environment, then use the browser only for monitoring and alerts.</p>
+        <div class="button-row">
+          <button id="saveBtn">Save and monitor</button>
+          <button id="geoBtn">Use my location</button>
+          <button id="testNotifyBtn" type="button">Send test alert</button>
+        </div>
+        <label>
+          Alert threshold (AQI)
+          <input id="threshold" type="number" min="0" value="100" />
+        </label>
+        <label>
+          Poll every (minutes)
+          <input id="pollInterval" type="number" min="1" value="10" />
+        </label>
+        <label class="toggle-row">
+          <input id="soundToggle" type="checkbox" checked />
+          Play a sound on alert notifications
+        </label>
+        <p id="backgroundModeNote" class="helper-text">Background mode is enabled. Alerts continue even while the tab is hidden.</p>
+      </section>
+
+      <section id="statusCard" class="card status-card status-neutral-card">
+        <div class="connection-row">
+          <span class="connection-label">WAQI API</span>
+          <span id="apiConnectionBadge" class="connection-badge connection-idle">
+            <span class="connection-dot"></span>
+            <span id="apiConnectionText">Idle</span>
+          </span>
+        </div>
+        <div class="status-top-row">
+          <div>
+            <p class="eyebrow">Current AQI</p>
+            <div class="aqi-hero">
+              <span id="aqiValue" class="aqi-number">—</span>
+              <span id="aqiBadge" class="aqi-badge status-neutral">Waiting</span>
+            </div>
+            <p id="healthGuidance" class="health-guidance">Waiting for the first air quality reading.</p>
+          </div>
+          <div class="status-meta">
+            <div class="meta-item"><span>Location</span><strong id="locationLabel">—</strong></div>
+            <div class="meta-item"><span>Pollutant</span><strong id="dominantPollutant">—</strong></div>
+            <div class="meta-item"><span>Updated</span><strong id="updatedAt">—</strong></div>
+          </div>
+        </div>
+        <div id="monitoringState" class="monitoring-state">Monitoring is idle.</div>
+      </section>
+
+      <section class="card history-card">
+        <h2>Recent AQI</h2>
+        <ul id="historyList" class="history-list"></ul>
+      </section>
+
+      <section class="card alert-card">
+        <h2>Alert history</h2>
+        <ul id="alertList" class="history-list"></ul>
+      </section>
+
+      <section class="card info-card">
+        <h2>How it works</h2>
+        <p>Enter a WAQI API token, choose a city or use your device location, and keep the page open. The app polls the WAQI API and sends browser notifications when the air quality exceeds your threshold.</p>
+        <p>If notifications are blocked, allow them when your browser prompts.</p>
+      </section>
+
+      <div id="message" class="message"></div>
+    </main>
+
+    <script src="app.js?v=2"></script>
+  </body>
+</html>
